@@ -10,6 +10,7 @@ const {
     GraphQLFloat
 } = graphql;
 
+const Genre = require('./Genre');
 const ProductionCompany = require('./ProductionCompany');
 const ProductionCountry = require('./ProductionCountry');
 
@@ -20,6 +21,7 @@ const Movie = new GraphQLObjectType({
             adult: { type: GraphQLBoolean },
             backdrop_path: { type: GraphQLString },
             budget: { type: GraphQLInt },
+            genres: { type: new GraphQLList(Genre) },
             genre_ids: { type: new GraphQLList(GraphQLInt) },
             homepage: { type: GraphQLString },
             id: { type: GraphQLID },

@@ -12,6 +12,10 @@ const {
   moviesPlayingNow
 } = require('./movie');
 
+const {
+    genres
+} = require('./genre');
+
 const RootQueryType = new GraphQLObjectType({
     name: 'RootQuery',
     fields: () => ({
@@ -22,7 +26,8 @@ const RootQueryType = new GraphQLObjectType({
         popularMovies,
         topRatedMovies,
         upcomingMovies,
-        moviesPlayingNow
+        moviesPlayingNow,
+        genres
     })
 })
 
