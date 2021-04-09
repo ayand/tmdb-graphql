@@ -9,7 +9,9 @@ const {
   popularMovies,
   topRatedMovies,
   upcomingMovies,
-  moviesPlayingNow
+  moviesPlayingNow,
+  alternativeTitles,
+  credits
 } = require('./movie');
 
 const {
@@ -27,6 +29,8 @@ const RootQueryType = new GraphQLObjectType({
         topRatedMovies,
         upcomingMovies,
         moviesPlayingNow,
+        alternativeTitles,
+        credits,
         genres
     })
 })

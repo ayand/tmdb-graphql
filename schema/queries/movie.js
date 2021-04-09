@@ -1,9 +1,11 @@
 const graphql = require('graphql');
 const { GraphQLID, GraphQLInt, GraphQLList, GraphQLString } = graphql;
 
-const Movie = require('../objects/Movie');
-const MoviePage = require('../objects/MoviePage');
-const DatedMoviePage = require('../objects/DatedMoviePage');
+const Movie = require('../objects/movie/Movie');
+const MoviePage = require('../objects/movie/MoviePage');
+const DatedMoviePage = require('../objects/movie/DatedMoviePage');
+const MovieTitle = require('../objects/title/MovieTitle');
+const Credit = require('../objects/credit/Credit');
 
 const MovieService = require('../../services/MovieService');
 
@@ -34,7 +36,7 @@ module.exports = {
         type: MoviePage,
         args: {
             api_key: { type: GraphQLString },
-            movie_id: { type: GraphQLString },
+            movie_id: { type: GraphQLID },
             page: { type: GraphQLInt },
             language: { type: GraphQLString }
         },
@@ -98,6 +100,28 @@ module.exports = {
         },
         resolve(parentValue, args, req) {
             return MovieService.getUpcomingMovies(args);
+        }
+    },
+    alternativeTitles: {
+        type: MovieTitle,
+        args: {
+            api_key: { type: GraphQLString },
+            movie_id: { type: GraphQLID },
+            country: { type: GraphQLString }
+        },
+        resolve(parentValue, args, req) {
+            return MovieService.getMovieTitles(args);
+        }
+    },
+    credits: {
+        type: Credit,
+        args: {
+            api_key: { type: GraphQLString },
+            movie_id: { type: GraphQLID },
+            language: { type: GraphQLString }
+        },
+        resolve(parentValue, args, req) {
+            return MovieService.getMovieCredits(args);
         }
     }
 }

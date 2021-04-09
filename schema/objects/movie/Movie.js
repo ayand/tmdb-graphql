@@ -10,9 +10,9 @@ const {
     GraphQLFloat
 } = graphql;
 
-const Genre = require('./Genre');
-const ProductionCompany = require('./ProductionCompany');
-const ProductionCountry = require('./ProductionCountry');
+const Genre = require('../genre/Genre');
+const ProductionCompany = require('../company/ProductionCompany');
+const ProductionCountry = require('../country/ProductionCountry');
 
 const Movie = new GraphQLObjectType({
     name: 'Movie',

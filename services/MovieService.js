@@ -156,6 +156,38 @@ function getTopRatedMovies(args) {
     return axios.get(url).then(res => res.data);
 }
 
+function getMovieTitles(args) {
+    const {
+        api_key,
+        movie_id,
+        country
+    } = args;
+
+    let url = `https://api.themoviedb.org/3/movie/${movie_id}/alternative_titles?api_key=${api_key}`;
+
+    if (country) {
+        url += `&country=${country}`;
+    }
+
+    return axios.get(url).then(res => res.data);
+}
+
+function getMovieCredits(args) {
+    const {
+        api_key,
+        movie_id,
+        language
+    } = args;
+
+    let url = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${api_key}`;
+
+    if (language) {
+        url += `&language=${language}`;
+    }
+
+    return axios.get(url).then(res => res.data);
+}
+
 module.exports = {
   getMovie,
   searchMovies,
@@ -164,5 +196,7 @@ module.exports = {
   getMoviesPlayingNow,
   getPopularMovies,
   getTopRatedMovies,
-  getUpcomingMovies
+  getUpcomingMovies,
+  getMovieTitles,
+  getMovieCredits
 };
