@@ -20,7 +20,11 @@ const {
 
 const {
     tvShow,
-    tvShowCredits
+    tvShowCredits,
+    showsAiringToday,
+    showsOnAir,
+    popularShows,
+    topRatedShows
 } = require('./tv');
 
 const RootQueryType = new GraphQLObjectType({
@@ -38,7 +42,11 @@ const RootQueryType = new GraphQLObjectType({
         alternativeTitles,
         movieCredits,
         tvShow,
-        tvShowCredits
+        tvShowCredits,
+        showsAiringToday,
+        showsOnAir,
+        popularShows,
+        topRatedShows
     })
 })
 
