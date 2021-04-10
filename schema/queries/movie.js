@@ -113,7 +113,7 @@ module.exports = {
             return MovieService.getMovieTitles(args);
         }
     },
-    credits: {
+    movieCredits: {
         type: Credit,
         args: {
             api_key: { type: GraphQLString },
