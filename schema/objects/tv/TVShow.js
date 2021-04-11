@@ -13,6 +13,7 @@ const {
 const Genre = require('../genre/Genre');
 const ProductionCompany = require('../company/ProductionCompany');
 const ProductionCountry = require('../country/ProductionCountry');
+const SeasonSummary = require('../season/SeasonSummary');
 
 const TVShow = new GraphQLObjectType({
     name: "TVShow",
@@ -38,6 +39,7 @@ const TVShow = new GraphQLObjectType({
             poster_path: { type: GraphQLString },
             production_companies: { type: new GraphQLList(ProductionCompany) },
             production_countries: { type: new GraphQLList(ProductionCountry) },
+            seasons: { type: new GraphQLList(SeasonSummary) },
             status: { type: GraphQLString },
             tagline: { type: GraphQLString },
             type: { type: GraphQLString },

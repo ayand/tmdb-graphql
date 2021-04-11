@@ -109,6 +109,21 @@ function getTopRatedShows(args) {
     return axios.get(url).then(res => res.data);
 }
 
+function getTVSeason(args) {
+    const {
+        api_key,
+        tv_id,
+        season_number,
+        language
+    } = args;
+    let url = `https://api.themoviedb.org/3/tv/${tv_id}/season/${season_number}?api_key=${api_key}`;
+
+    if (language) {
+        url += `&language=${language}`;
+    }
+
+    return axios.get(url).then(res => res.data);
+}
 
 module.exports = {
   getTVShow,
@@ -116,5 +131,6 @@ module.exports = {
   getShowsAiringToday,
   getShowsOnAir,
   getPopularShows,
-  getTopRatedShows
+  getTopRatedShows,
+  getTVSeason
 };

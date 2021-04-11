@@ -27,6 +27,10 @@ const {
     topRatedShows
 } = require('./tv');
 
+const {
+    season
+} = require('./season');
+
 const RootQueryType = new GraphQLObjectType({
     name: 'RootQuery',
     fields: () => ({
@@ -46,7 +50,8 @@ const RootQueryType = new GraphQLObjectType({
         showsAiringToday,
         showsOnAir,
         popularShows,
-        topRatedShows
+        topRatedShows,
+        season
     })
 })
 
