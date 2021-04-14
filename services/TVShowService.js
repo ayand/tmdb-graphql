@@ -116,7 +116,26 @@ function getTVSeason(args) {
         season_number,
         language
     } = args;
+
     let url = `https://api.themoviedb.org/3/tv/${tv_id}/season/${season_number}?api_key=${api_key}`;
+
+    if (language) {
+        url += `&language=${language}`;
+    }
+
+    return axios.get(url).then(res => res.data);
+}
+
+function getTVEpisode(args) {
+    const {
+        api_key,
+        tv_id,
+        season_number,
+        episode_number,
+        language
+    } = args;
+
+    let url = `https://api.themoviedb.org/3/tv/${tv_id}/season/${season_number}/episode/${episode_number}?api_key=${api_key}`;
 
     if (language) {
         url += `&language=${language}`;
@@ -132,5 +151,6 @@ module.exports = {
   getShowsOnAir,
   getPopularShows,
   getTopRatedShows,
-  getTVSeason
+  getTVSeason,
+  getTVEpisode
 };
