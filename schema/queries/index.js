@@ -39,6 +39,16 @@ const {
     episode
 } = require('./episode');
 
+const {
+    company
+} = require('./company');
+
+const {
+    companyImages,
+    movieImages,
+    personImages
+} = require('./image');
+
 const RootQueryType = new GraphQLObjectType({
     name: 'RootQuery',
     fields: () => ({
@@ -61,7 +71,11 @@ const RootQueryType = new GraphQLObjectType({
         topRatedShows,
         season,
         person,
-        episode
+        episode,
+        company,
+        companyImages,
+        movieImages,
+        personImages
     })
 })
 

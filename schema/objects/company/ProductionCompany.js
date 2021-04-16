@@ -17,7 +17,11 @@ const ProductionCompany = new GraphQLObjectType({
             id: { type: GraphQLID },
             logo_path: { type: GraphQLString },
             name: { type: GraphQLString },
-            origin_country: { type: GraphQLString }
+            origin_country: { type: GraphQLString },
+            description: { type: GraphQLString },
+            headquarters: { type: GraphQLString },
+            homepage: { type: GraphQLString },
+            parent_company: { type: ProductionCompany },
         }
     }
 })
